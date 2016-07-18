@@ -48,6 +48,9 @@ angular.module('demo-todo', ['ionic', 'ionic.service.core', 'LocalStorageModule'
     $scope.openTaskModal = function () {
       $scope.newTaskModal.show();
     }
+    $scope.closeTaskModal = function () {
+      $scope.newTaskModal.hide();
+    }
 
     $scope.getTasks = function () {
       //fetches task from local storage
