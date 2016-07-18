@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('scotch-todo', ['ionic','ionic.service.core', 'LocalStorageModule'])
+angular.module('demo-todo', ['ionic', 'ionic.service.core', 'LocalStorageModule'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -24,7 +24,7 @@ angular.module('scotch-todo', ['ionic','ionic.service.core', 'LocalStorageModule
   })
   .config(function (localStorageServiceProvider) {
     localStorageServiceProvider
-      .setPrefix('scotch-todo');
+      .setPrefix('demo-todo');
   })
 
   .controller('main', function ($scope, $ionicModal, localStorageService) {
@@ -44,6 +44,10 @@ angular.module('scotch-todo', ['ionic','ionic.service.core', 'LocalStorageModule
     }).then(function (modal) {
       $scope.newTaskModal = modal;
     });
+
+    $scope.openTaskModal = function () {
+      $scope.newTaskModal.show();
+    }
 
     $scope.getTasks = function () {
       //fetches task from local storage
